@@ -1,8 +1,9 @@
+import { AppRouter } from "./router/AppRouter"
 
 export const HeroesApp = () => {
   return (
     <>
-      <h1 className="text-2xl font-semibold">HeroesApp</h1>
+      <AppRouter />
     </>
   )
 }
