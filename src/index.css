@@ -3,8 +3,9 @@
 @tailwind utilities;
 
 @layer base{
+
   body{
-    @apply p-5
+    @apply bg-green-50
   }
 
   h1{
