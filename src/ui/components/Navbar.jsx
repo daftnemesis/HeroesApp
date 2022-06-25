@@ -5,13 +5,19 @@ export const Navbar = () => {
 
     <nav className="bg-gradient-to-r from-violet-700 via-purple-700 to-fuchsia-700 border-gray-400 text-m font-medium p-2 shadow-lg">
       <div className=" flex justify-between">
-        <div className="w-fit">
+        <div className="w-fit flex gap-2">
           <Link
             to='/'
             className="text-white"
           >
             Asociaciones
           </Link>
+          <NavLink
+            to='search'
+            className='text-white'
+          >
+            Buscar
+          </NavLink>
         </div>
 
         <div className="flex w-fit gap-3">
