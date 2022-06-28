@@ -15,12 +15,6 @@ export const Navbar = () => {
           >
             Asociaciones
           </Link>
-          <NavLink
-            to='search'
-            className='text-white'
-          >
-            Buscar
-          </NavLink>
         </div>
 
         <div className="flex w-fit gap-3">
@@ -30,6 +24,15 @@ export const Navbar = () => {
               className={ ({ isActive }) => `hover:text-white transition ease-in-out delay-100 ${isActive ? 'text-white': 'text-violet-500' }` }
             >
                 Marvel
+            </NavLink>
+          </div>
+
+          <div>
+            <NavLink 
+              to='search' 
+              className={ ({ isActive }) => `hover:text-white transition ease-in-out delay-100 ${isActive ? 'text-white': 'text-violet-500' }` }
+            >
+                Search
             </NavLink>
           </div>
 

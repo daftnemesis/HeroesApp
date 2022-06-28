@@ -1,5 +1,52 @@
+import { HeroCard } from "../components"
+
 export const SearchPage = () => {
   return (
-    <h1>Search</h1>
+    
+    <>
+      <h1 className="font-bold text-3xl">Search Page</h1>
+      <hr className="border-1 border-gray-500 mb-2"/>
+
+      <div className="grid grid-cols-6 ">
+        <div className="col-start-1 col-end-3 border">
+           <h4 className="font-semibold text-xl pl-1">Searching</h4>
+           <hr />
+
+           <form action="">
+            <input 
+              type="text" 
+              placeholder="Search a hero"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-violet-500 focus:border-violet-500 block w-full p-2.5"
+              name="searchText"
+              autoComplete="off"
+            />
+
+            <button 
+              className="text-purple-700 hover:text-white border border-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-1 text-center mr-2 my-2"
+
+            >
+              Search
+            </button>
+           </form>
+        </div>
+
+        <div className=" col-start-4 col-end-6">
+          <h4 className="font-semibold text-xl pl-1">Results</h4>
+          <hr className="border border-gray-300"/>
+
+          <div className="bg-emerald-300 text-center h-12 grid items-center text-lime-900 rounded-xl my-2">
+            <p>Search a hero</p>
+          </div>
+
+          <div className="bg-red-300 text-center h-12 grid items-center text-red-900 rounded-xl my-2">
+            <p>No hero with <b>ABC</b></p>
+          </div>
+
+          <HeroCard />
+
+        </div>
+      </div>
+    </>
+
   )
 }

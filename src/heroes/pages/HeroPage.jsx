@@ -23,10 +23,10 @@ export const HeroPage = () => {
         <img 
           src={`/assets/heroes/${ id }.jpg`}
           alt={ hero.superhero }
-          className='rounded-xl'
+          className='rounded-xl animate__animated animate__fadeInLeft'
         />
       </div>
-      <div className="col-start-2 col-end-4">
+      <div className="col-start-2 col-end-4 animate__animated animate__fadeInRight">
         <h3 className="font-bold text-3xl">{ hero.superhero }</h3>
         <ul className="mt-2">
           <li className="font-medium text-base"> <b>Alter ego:</b> { hero.alter_ego} </li>
@@ -39,7 +39,7 @@ export const HeroPage = () => {
 
         <button
           onClick={onNavigateBack}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4 animate__animated animate__fadeInUp"
         >
           Regresar
         </button>
