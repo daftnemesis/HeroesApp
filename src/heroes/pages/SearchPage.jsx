@@ -1,6 +1,32 @@
+import { useLocation, useNavigate } from "react-router-dom";
+import queryString from "query-string";
+import { useForm } from "../../hooks/useForm"
 import { HeroCard } from "../components"
+import { getHeroesByName } from "../helpers";
 
 export const SearchPage = () => {
+
+  const navigate = useNavigate();
+  const location = useLocation()
+
+  const { q = ''} = queryString.parse(location.search)
+  const heroes = getHeroesByName(q)
+
+  const showSearch = (q.length === 0)
+  const showError = (q.length > 0 && heroes.length === 0)
+
+
+  const { searchText, onInputChange } = useForm({
+    searchText: "",
+  })
+
+  const onSearchSubmit = (e) => {
+    e.preventDefault()
+    // if( searchText.trim().length <= 1 ) return
+
+    navigate(`?q=${searchText}`)
+  }
+  
   return (
     
     <>
@@ -12,13 +38,15 @@ export const SearchPage = () => {
            <h4 className="font-semibold text-xl pl-1">Searching</h4>
            <hr />
 
-           <form action="">
+           <form onSubmit={ onSearchSubmit }>
             <input 
               type="text" 
               placeholder="Search a hero"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-violet-500 focus:border-violet-500 block w-full p-2.5"
               name="searchText"
               autoComplete="off"
+              value={searchText}
+              onChange={onInputChange}
             />
 
             <button 
@@ -34,15 +62,26 @@ export const SearchPage = () => {
           <h4 className="font-semibold text-xl pl-1">Results</h4>
           <hr className="border border-gray-300"/>
 
-          <div className="bg-emerald-300 text-center h-12 grid items-center text-lime-900 rounded-xl my-2">
+          <div 
+            className="bg-emerald-300 text-center h-12 grid items-center text-lime-900 rounded-xl my-2 animate__animated animate__fadeInUp"
+            style={{ display: showSearch ? '' : 'none' }}
+          >
             <p>Search a hero</p>
           </div>
 
-          <div className="bg-red-300 text-center h-12 grid items-center text-red-900 rounded-xl my-2">
-            <p>No hero with <b>ABC</b></p>
+          <div 
+            className="bg-red-300 text-center h-12 grid items-center text-red-900 rounded-xl my-2 animate__animated animate__fadeInUp"
+            style={{ display: showError ? '' : 'none' }}
+          >
+            <p>No hero with <b>{q}</b></p>
           </div>
 
-          <HeroCard />
+          {
+            heroes.map( hero => (
+              <HeroCard key={hero.id} {...hero} />
+            ))
+          }
+
 
         </div>
       </div>
