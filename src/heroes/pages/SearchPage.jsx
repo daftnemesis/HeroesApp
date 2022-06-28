@@ -33,8 +33,8 @@ export const SearchPage = () => {
       <h1 className="font-bold text-3xl">Search Page</h1>
       <hr className="border-1 border-gray-500 mb-2"/>
 
-      <div className="grid grid-cols-6 ">
-        <div className="col-start-1 col-end-3 border">
+      <div className="flex flex-col md:grid md:grid-cols-6 ">
+        <div className="md:col-start-1 md:col-end-3 border">
            <h4 className="font-semibold text-xl pl-1">Searching</h4>
            <hr />
 
@@ -58,7 +58,7 @@ export const SearchPage = () => {
            </form>
         </div>
 
-        <div className=" col-start-4 col-end-6">
+        <div className=" md:col-start-4 md:col-end-6">
           <h4 className="font-semibold text-xl pl-1">Results</h4>
           <hr className="border border-gray-300"/>
 
